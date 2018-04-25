@@ -8,10 +8,14 @@ public class PlayerInteract : MonoBehaviour {
 	public InteractionObject currentInterObjScript = null;
 
 	void Update() {
-		
+		if (Input.GetKeyDown (KeyCode.E) && currentInterObj) {
+			if (currentInterObjScript.item) {
+				currentInterObj.SendMessage ("Update");
+			}
+		}
 	}
 
-	void OnTriggerEnter(Collider other) {
+	void OnTriggerEnter2D(Collider2D other) {
 		if (other.CompareTag ("interObject")) {
 			currentInterObj = other.gameObject;
 			currentInterObjScript = currentInterObj.GetComponent<InteractionObject> ();
@@ -19,7 +23,7 @@ public class PlayerInteract : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerExit(Collider other) {
+	void OnTriggerExit2D(Collider2D other) {
 		if(other.CompareTag ("interObject")) {
 			if(other.gameObject == currentInterObj) {
 				currentInterObj = null;

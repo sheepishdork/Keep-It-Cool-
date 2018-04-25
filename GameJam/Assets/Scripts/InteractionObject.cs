@@ -5,5 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class InteractionObject : MonoBehaviour {
 
+	public bool item;
+	public bool dragon;
 
 }
