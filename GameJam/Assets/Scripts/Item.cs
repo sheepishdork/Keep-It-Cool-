@@ -3,25 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Item : MonoBehaviour {
+	
+	public Transform onHand;
 
-	bool carrying;
- 	GameObject currentInterObj;
-
-	void Update () {
-		if (carrying) {
-			Carry (currentInterObj);
-		} else {
-			pickUp ();
-		}
+	void PickUp() {
+		this.transform.position = onHand.position;
+		this.transform.parent = GameObject.Find ("player").transform;
 	}
 
-	void Carry(GameObject o) {
-		
-	}
-
-	void pickUp() {
-		if (Input.GetKeyDown (KeyCode.E)) {
-			
-		}
+	void PutDown() {
+		this.transform.parent = null;
 	}
 }

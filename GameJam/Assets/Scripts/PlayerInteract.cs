@@ -6,11 +6,24 @@ public class PlayerInteract : MonoBehaviour {
 
 	public GameObject currentInterObj = null;
 	public InteractionObject currentInterObjScript = null;
+	bool carrying;
+
+	void Start() {
+		carrying = false;
+	}
 
 	void Update() {
-		if (Input.GetKeyDown (KeyCode.E) && currentInterObj) {
+		if (Input.GetKey(KeyCode.E) && currentInterObj) {
 			if (currentInterObjScript.item) {
-				currentInterObj.SendMessage ("Update");
+				carrying = true;
+				currentInterObj.SendMessage ("PickUp");
+			}
+		}
+
+		if (Input.GetKeyUp (KeyCode.E) && carrying) {
+			if (currentInterObjScript.item) {
+				carrying = false;
+				currentInterObj.SendMessage ("PutDown");
 			}
 		}
 	}
