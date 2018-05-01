@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 
-	public float myTimer = 15;
+	public float myTimer = 60;
 	public Text timerText;
 
 	void Start () {
@@ -15,6 +15,9 @@ public class Timer : MonoBehaviour {
 	void Update () {
 		myTimer -= Time.deltaTime;
 		timerText.text = myTimer.ToString ("f0");
-		print (myTimer);
+
+		if (myTimer <= 0) {
+			Time.timeScale = 0;
+		}
 	}
 }
