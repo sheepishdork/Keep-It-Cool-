@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class RageBar : MonoBehaviour {
 
@@ -22,9 +24,16 @@ public class RageBar : MonoBehaviour {
 		} else if (rage <= 0) {
 			rage += Time.deltaTime * rageOverTime;
 			rageBar.fillAmount = rage / maxRage;
+
+
 		}else {
 			Time.timeScale = 0;
+
 		}
+		if (rage >= 100) {
+			SceneManager.LoadScene ("EndScene");
+		}
+	
 	}
 
 	public void Coin() {

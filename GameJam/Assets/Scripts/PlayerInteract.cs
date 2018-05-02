@@ -26,6 +26,9 @@ public class PlayerInteract : MonoBehaviour {
 				currentInterObj.SendMessage ("PutDown");
 			}
 		}
+		if (Input.GetKeyDown (KeyCode.Escape)) {
+			Application.Quit ();
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other) {

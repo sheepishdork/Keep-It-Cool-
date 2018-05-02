@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
 
@@ -18,6 +19,7 @@ public class Timer : MonoBehaviour {
 
 		if (myTimer <= 0) {
 			Time.timeScale = 0;
+			SceneManager.LoadScene ("EndScene");
 		}
 	}
 }
