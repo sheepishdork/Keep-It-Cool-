@@ -7,18 +7,12 @@ public class RageBar : MonoBehaviour {
 
 	Image rageBar;
 
-	public GameObject fire;
-	Animator anim;
-
-	private float lastPlay;
-
 	public float rage;
 	public float rageOverTime;
 	public float maxRage = 100f;
 
 	void Start() {
 		rageBar = GetComponent<Image> ();
-		anim = fire.GetComponent<Animator>();
 	}
 
 	void Update() {
@@ -30,15 +24,6 @@ public class RageBar : MonoBehaviour {
 			rageBar.fillAmount = rage / maxRage;
 		}else {
 			Time.timeScale = 0;
-		}
-
-		if (Time.time - lastPlay >= 6) {
-			lastPlay = Time.time;
-			anim.SetBool ("isFlaming",true);		
-			anim.Play ("fire1");
-		} else {
-			anim.SetBool ("isFlaming",false);
-			fire.GetComponent<Animator>
 		}
 	}
 
